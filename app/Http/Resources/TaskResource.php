@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class TaskResource extends JsonResource
 {
-
     public static $wrap = false;
 
     /**
@@ -26,8 +25,8 @@ class TaskResource extends JsonResource
             'created_at' => (new Carbon($this->created_at))->format('Y-m-d'),
             'due_date' => (new Carbon($this->due_date))->format('Y-m-d'),
             'status' => $this->status,
-            'priority'=> $this->priority,
-            'image_path' => $this->image_path ? Storage::url($this->image_path) : (''),
+            'priority' => $this->priority,
+            'image_path' => $this->image_path ? Storage::url($this->image_path) : '',
             'project_id' => $this->project_id,
             'assigned_user_id' => $this->assigned_user_id,
             'project' => new ProjectResource($this->project),
