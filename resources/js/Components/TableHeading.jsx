@@ -8,27 +8,20 @@ export default function TableHeading({
     sortChanged = () => { },
     children,
 }) {
+    const isAscending = sort_field === name && sort_direction === "asc";
+    const isDescending = sort_field === name && sort_direction === "desc";
+
     return (
-        <th onClick={(e) => sortChanged(name)}>
+        <th onClick={() => sortChanged(name)}>
             <div className="px-3 py-3 flex items-center justify-between gap-1 cursor-pointer">
                 {children}
                 {sortable && (
-                    <div>
+                    <div className="flex flex-col items-center">
                         <ChevronUpIcon
-                            className={
-                                "w-4 " +
-                                (sort_field === name && sort_direction === "asc"
-                                    ? "text-white"
-                                    : "")
-                            }
+                            className={`w-4 ${isAscending ? "text-white" : "text-gray-400"}`}
                         />
                         <ChevronDownIcon
-                            className={
-                                "w-4 -mt-2 " +
-                                (sort_field === name && sort_direction === "desc"
-                                    ? "text-white"
-                                    : "")
-                            }
+                            className={`w-4 -mt-2 ${isDescending ? "text-white" : "text-gray-400"}`}
                         />
                     </div>
                 )}

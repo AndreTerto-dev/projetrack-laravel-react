@@ -15,7 +15,6 @@ export default function Create({ auth }) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-
         post(route("user.store"));
     };
 
@@ -25,7 +24,7 @@ export default function Create({ auth }) {
             header={
                 <div className="flex justify-between items-center">
                     <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                        Create new User
+                        Create New User
                     </h2>
                 </div>
             }
@@ -56,12 +55,13 @@ export default function Create({ auth }) {
 
                                 <InputError message={errors.name} className="mt-2" />
                             </div>
+
                             <div className="mt-4">
                                 <InputLabel htmlFor="user_email" value="User Email" />
 
                                 <TextInput
                                     id="user_email"
-                                    type="text"
+                                    type="email"
                                     name="email"
                                     value={data.email}
                                     className="mt-1 block w-full"
@@ -70,6 +70,7 @@ export default function Create({ auth }) {
 
                                 <InputError message={errors.email} className="mt-2" />
                             </div>
+
                             <div className="mt-4">
                                 <InputLabel htmlFor="user_password" value="Password" />
 
@@ -84,13 +85,14 @@ export default function Create({ auth }) {
 
                                 <InputError message={errors.password} className="mt-2" />
                             </div>
+
                             <div className="mt-4">
                                 <InputLabel htmlFor="user_password_confirmation" value="Confirm Password" />
 
                                 <TextInput
                                     id="user_password_confirmation"
                                     type="password"
-                                    email="password_confirmation"
+                                    name="password_confirmation"
                                     value={data.password_confirmation}
                                     className="mt-1 block w-full"
                                     onChange={(e) => setData("password_confirmation", e.target.value)}
@@ -99,22 +101,24 @@ export default function Create({ auth }) {
                                 <InputError message={errors.password_confirmation} className="mt-2" />
                             </div>
 
-
-                            <div className="mt-4 text-right">
+                            <div className="mt-4 flex justify-end space-x-2">
                                 <Link
                                     href={route("user.index")}
-                                    className="bg-gray-100 py-1 px-3 text-gray-800 rounded shadow transition-all hover:bg-gray-200 mr-2"
+                                    className="bg-gray-100 py-2 px-4 text-gray-800 rounded shadow transition-all hover:bg-gray-200 mr-2"
                                 >
                                     Cancel
                                 </Link>
-                                <button className="bg-emerald-500 py-1 px-3 text-white rounded shadow transition-all hover:bg-emerald-600">
+                                <button
+                                    type="submit"
+                                    className="bg-emerald-500 py-2 px-4 text-white rounded shadow transition-all hover:bg-emerald-600"
+                                >
                                     Submit
                                 </button>
                             </div>
-                        </ form>
+                        </form>
                     </div>
                 </div>
             </div>
         </AuthenticatedLayout>
-    )
+    );
 }

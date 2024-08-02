@@ -6,6 +6,7 @@ import {
     TASK_STATUS_CLASS_MAP,
     TASK_STATUS_TEXT_MAP,
 } from "@/constants.jsx";
+
 export default function Show({ auth, task }) {
     return (
         <AuthenticatedLayout
@@ -36,19 +37,19 @@ export default function Show({ auth, task }) {
                             />
                         </div>
                         <div className="p-6 text-gray-900 dark:text-gray-100">
-                            <div className="grid gap-1 grid-cols-2 mt-2">
+                            <div className="grid gap-6 grid-cols-2 mt-2">
                                 <div>
                                     <div>
-                                        <label className="font-bold text-lg">Task ID</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Task ID</label>
                                         <p className="mt-1">{task.id}</p>
                                     </div>
                                     <div className="mt-4">
-                                        <label className="font-bold text-lg">Task Name</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Task Name</label>
                                         <p className="mt-1">{task.name}</p>
                                     </div>
 
                                     <div className="mt-4">
-                                        <label className="font-bold text-lg">Task Status</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Task Status</label>
                                         <p className="mt-1">
                                             <span
                                                 className={
@@ -62,7 +63,7 @@ export default function Show({ auth, task }) {
                                     </div>
 
                                     <div className="mt-4">
-                                        <label className="font-bold text-lg">Task Priority</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Task Priority</label>
                                         <p className="mt-1">
                                             <span
                                                 className={
@@ -75,43 +76,43 @@ export default function Show({ auth, task }) {
                                         </p>
                                     </div>
                                     <div className="mt-4">
-                                        <label className="font-bold text-lg">Created By</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Created By</label>
                                         <p className="mt-1">{task.createdBy.name}</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <label className="font-bold text-lg">Due Date</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Due Date</label>
                                         <p className="mt-1">{task.due_date}</p>
                                     </div>
                                     <div className="mt-4">
-                                        <label className="font-bold text-lg">Create Date</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Create Date</label>
                                         <p className="mt-1">{task.created_at}</p>
                                     </div>
                                     <div className="mt-4">
-                                        <label className="font-bold text-lg">Updated By</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Updated By</label>
                                         <p className="mt-1">{task.updatedBy.name}</p>
                                     </div>
                                     <div className="mt-4">
-                                        <label className="font-bold text-lg">Project</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Project</label>
                                         <p className="mt-1">
                                             <Link
                                                 href={route("project.show", task.project.id)}
-                                                className="hover:underline"
+                                                className="text-blue-600 dark:text-blue-400 hover:underline"
                                             >
                                                 {task.project.name}
                                             </Link>
                                         </p>
                                     </div>
                                     <div className="mt-4">
-                                        <label className="font-bold text-lg">Assigned User</label>
+                                        <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Assigned User</label>
                                         <p className="mt-1">{task.assignedUser.name}</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="mt-4">
-                                <label className="font-bold text-lg">Task Description</label>
+                                <label className="font-bold text-lg text-gray-700 dark:text-gray-300">Task Description</label>
                                 <p className="mt-1">{task.description}</p>
                             </div>
                         </div>

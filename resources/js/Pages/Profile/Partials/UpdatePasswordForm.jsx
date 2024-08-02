@@ -39,7 +39,7 @@ export default function UpdatePasswordForm({ className = '' }) {
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">Update Password</h2>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Update Password</h2>
 
                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                     Ensure your account is using a long, random password to stay secure.
@@ -58,6 +58,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="current-password"
+                        required
                     />
 
                     <InputError message={errors.current_password} className="mt-2" />
@@ -74,6 +75,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="new-password"
+                        required
                     />
 
                     <InputError message={errors.password} className="mt-2" />
@@ -89,6 +91,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="new-password"
+                        required
                     />
 
                     <InputError message={errors.password_confirmation} className="mt-2" />
@@ -99,12 +102,12 @@ export default function UpdatePasswordForm({ className = '' }) {
 
                     <Transition
                         show={recentlySuccessful}
-                        enter="transition ease-in-out"
+                        enter="transition-opacity duration-300"
                         enterFrom="opacity-0"
-                        leave="transition ease-in-out"
+                        leave="transition-opacity duration-300"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
+                        <p className="text-sm text-green-600 dark:text-green-400">Saved.</p>
                     </Transition>
                 </div>
             </form>
